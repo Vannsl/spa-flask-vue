@@ -8,11 +8,27 @@ app = Flask(__name__,
             template_folder = "./frontend/dist")
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-@app.route('/api/random')
-def random_number():
-    response = {
-        'randomNumber': randint(1, 100)
-    }
+FAQ = {
+    'faq1': {
+        'id': 1,
+        'title': 'How can I track my orders & payment?',
+        'message': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+    },
+    'faq2': {
+        'id': 2,
+        'title': 'How do you ship your orders',
+        'message': 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+    },
+    'faq3': {
+        'id': 3,
+        'title': 'How can I change my shipment address?',
+        'message': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+    },
+}
+
+@app.route('/api/faq')
+def faq():
+    response = FAQ
     return jsonify(response)
 
 @app.route('/', defaults={'path': ''})

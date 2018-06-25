@@ -1,18 +1,40 @@
 <template>
   <div class="faq page">
     <h1>This is the FAQ page</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Sapiente consequatur facilis consequuntur, voluptatibus, voluptas aut
-      mollitia aspernatur illo alias neque architecto et dicta necessitatibus
-      nobis nisi ipsum consectetur eius quam!
-    </p>
+    <div
+      v-for="faq in faqList"
+      :key="faq.id"
+    >
+      <h2>{{faq.title}}</h2>
+      <p>{{faq.message}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Faq',
+  data() {
+    return {
+      faqList: [],
+    };
+  },
+  methods: {
+    getFaqList() {
+      axios.get('http://localhost:5000/api/faq')
+      .then(response => {
+        this.faqList = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
+  },
+  created() {
+    this.getFaqList();
+  },
 };
 </script>
 
