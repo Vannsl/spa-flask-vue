@@ -30,6 +30,19 @@ export default {
   width: 800px;
 }
 
+a {
+	color: #2c3e50;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #2c3e50;
+}
+
+.router-link-active {
+	border-bottom: 1px solid #2c3e50;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
