@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ul>
-      <router-link tag="li" :to="{ path: '/' }">
+      <router-link tag="li" :to="{ path: '/' }" exact>
         <a>Home</a>
       </router-link>
       <router-link tag="li" :to="{ path: 'faq' }">
@@ -19,6 +19,10 @@ export default {
 </script>
 
 <style>
+.router-link-active {
+  border-bottom: 1px solid #2c3e50;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -31,16 +35,12 @@ export default {
 }
 
 a {
-	color: #2c3e50;
-	text-decoration: none;
+  color: #2c3e50;
+  text-decoration: none;
 }
 
 a:hover {
-	color: #2c3e50;
-}
-
-.router-link-active {
-	border-bottom: 1px solid #2c3e50;
+  color: #2c3e50;
 }
 
 ul {
@@ -62,13 +62,14 @@ li {
   animation-delay: .1s;
   opacity: 0;
 }
+
 .transform-leave-active {
   animation: out 1s;
 }
 
 @keyframes in {
   from {
-    transform: translateX(50px);
+    transform: translateX(-50px);
     opacity: 0;
   }
   to {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'Faq',
@@ -24,12 +24,10 @@ export default {
   methods: {
     getFaqList() {
       axios.get('http://localhost:5000/api/faq')
-      .then(response => {
-        this.faqList = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then((response) => {
+          this.faqList = response.data;
+        })
+        .catch(error => console.log(error));
     },
   },
   created() {
