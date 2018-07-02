@@ -61,7 +61,7 @@ li {
 
 .transform-enter-active {
   animation: in 1s;
-  animation-delay: .1s;
+  animation-delay: .05s;
   opacity: 0;
 }
 
@@ -85,7 +85,7 @@ li {
     transform: translateX(0);
   }
   to {
-    transform: translateX(50px);
+    transform: translateX(-50px);
     opacity: 0;
   }
 }
