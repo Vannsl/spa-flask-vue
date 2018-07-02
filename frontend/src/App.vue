@@ -8,7 +8,9 @@
         <a>FAQ</a>
       </router-link>
     </ul>
-    <router-view />
+    <transition name="transform" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
